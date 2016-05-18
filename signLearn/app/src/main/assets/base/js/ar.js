@@ -21,7 +21,7 @@ var World = {
         });
 
 	// indicamos el nombre del Target en el Tracker, basicamente al momento de que el Target sea rastreado por el Tracker el objeto htmlDrawable sera renderizado en la pantalla del dispositivo
-        var señal1 = new AR.Trackable2DObject(this.tracker, "paso_peatones", {
+        var signal1 = new AR.Trackable2DObject(this.tracker, "paso_peatones", {
             drawables: {
                 cam: htmlDrawable1
             }
