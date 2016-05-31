@@ -11,6 +11,7 @@ var World = {
 		this.tracker = new AR.Tracker("assets/tracker.wtc", {
 			onLoaded: this.worldLoaded
 		});
+<<<<<<< HEAD
         //################################PASO DE PEATONES##########################################
 		// crear overlay
 		var peatones_1 = new AR.ImageResource("assets/peatones_opc1F.jpg");
@@ -133,6 +134,22 @@ var World = {
                 cam: [overlay_7,overlay_8,overlay_9]
             }
         });
+=======
+
+		// creamos un overlay
+		var imagen_ar = new AR.ImageResource("assets/ar_m.jpg");
+		var overlay = new AR.ImageDrawable(imagen_ar, 0.2, {
+			offsetX: -0.15,
+			offsetY: 0
+		});
+
+ // indicamos el nombre del Target en el Tracker
+		var paso_peatones = new AR.Trackable2DObject(this.tracker, "paso_peatones", {
+			drawables: {
+				cam: overlay
+			}
+		});
+>>>>>>> 6b70bc777c6bfc1fd761363da08b27de1e1a558c
 	}
 };
 

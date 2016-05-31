@@ -1,0 +1,86 @@
+var World = {
+    loaded: false,
+
+    init: function initFn() {
+        this.createOverlays();
+    },
+
+    createOverlays: function createOverlaysFn() {
+
+	// creamos un objeto de la clase HtmlDrawable
+	htmlDrawable1 = new AR.HtmlDrawable({
+	   html:"<div style='font-size:14px;color:#FFF;background: #068;border: 2px solid #059;border-radius: 5px;padding: 5px; width: 326px;'><img src='http://cdn.brandonvogt.com/wp-content/uploads/C.S.-Lewis.png' height=100 width=100/>C.S. Lewis<p>El príncipe Caspian es una novela de fantasía escrita para niños por C. S. Lewis. Es el segundo libro publicado (1951) de la serie Las Crónicas de Narnia, pero es el cuarto en su cronología interna.</p></div>"
+	}, 1,{offsetX : 0,offsetY: -0.5,opacity : 0.8,scale : 1});
+
+	htmlDrawable2 = new AR.HtmlDrawable({
+	   html:"<div style='font-size:14px;color:#FFF;background: #068;border: 2px solid #059;border-radius: 5px;padding: 5px; width: 326px;'><img src='http://4.bp.blogspot.com/-iqbFX38oWHM/UZJ4ZiagxAI/AAAAAAAAXIw/BGwkl1yq-tY/s640/1.jpg' height=100 width=100/>J.K. Rowling<p>Harry Potter y la Cámara Secreta es el segundo libro de la serie literaria Harry Potter, escrito por la autora británica J. K. Rowling en 1998.La trama sigue el segundo año de Harry Potter en el Colegio Hogwarts de Magia y Hechicería, durante el cual una serie de mensajes en las paredes de los pasillos de la escuela advierten que la Cámara de los Secretos ha sido abierta</p></div>"
+	}, 1,{offsetX : 0,offsetY: -0.5,opacity : 0.8,scale : 1});
+
+	htmlDrawable3 = new AR.HtmlDrawable({
+	    html:"<div style='font-size:14px;color:#FFF;background: #068;border: 2px solid #059;border-radius: 5px;padding: 5px; width: 326px;'><img src='http://3.bp.blogspot.com/-JY4yj62tu4o/Us1BdcbJzxI/AAAAAAAAOaI/oliibKazOio/s1600/John+Boyne.jpg' height=100 width=100/>Jhon Boyne<p>Es un libro de género dramático que narra desde la inocente óptica de Bruno, hijo de un oficial nazi que se muda junto a su familia a un lugar que es  el campo de exterminio de Auschwitz.</p></div>"
+	}, 1,{offsetX : 0,offsetY: -0.5,opacity : 0.8,scale : 1});
+
+	htmlDrawable4 = new AR.HtmlDrawable({
+	    html:"<div style='font-size:14px;color:#FFF;background: #068;border: 2px solid #059;border-radius: 5px;padding: 5px; width: 326px;'><img src='http://www.cuentacuentos.eu/narradores/miembros/espana/fotoespana/fotoMontserratdelAmo2.jpg' height=100 width=100/>Montserrat del Amo<p>Es uno de los escasos libros de literatura juvenil dedicados a la figura de El Cid. Y en este caso presenta un Cid honrado, solidario, buen padre, buen marido y fiel vasallo.</p></div>"
+	}, 1,{offsetX : 0,offsetY: -0.5,opacity : 0.8,scale : 1});
+
+	htmlDrawable5 = new AR.HtmlDrawable({
+	    html:"<div style='font-size:14px;color:#FFF;background: #068;border: 2px solid #059;border-radius: 5px;padding: 5px; width: 326px;'><img src='http://zetaestaticos.com/cordoba/img/noticias/0/771/771166_1.jpg' height=100 width=100/>Lorenzo Silva<p>Libro de género narrativo que cuenta la historia de Irene que se hará amiga de un chico nuevo que odia todo menos el desierto.</p></div>"
+	}, 1,{offsetX : 0,offsetY: -0.5,opacity : 0.8,scale : 1});
+
+	htmlDrawable6 = new AR.HtmlDrawable({
+	    html:"<div style='font-size:14px;color:#FFF;background: #068;border: 2px solid #059;border-radius: 5px;padding: 5px; width: 326px;'><img src='http://cdn.brandonvogt.com/wp-content/uploads/C.S.-Lewis.png' height=100 width=100/>C.S. Lewis<p>El caballo y el muchacho es una novela publicada por el escritor británico C. S. Lewis en 1954. Es la tercera novela de Las Crónicas de Narnia en orden cronológico, y la quinta en orden de publicación. El libro relata la historia de Bree (un caballo parlante) y Shasta (un muchacho), habitantes de Calormen, un extenso reino al sur de Narnia.</p></div>"
+	}, 1,{offsetX : 0,offsetY: -0.5,opacity : 0.8,scale : 1});
+
+
+        // inicializamos el Tracker con el Target collection (nuestra caratula del libro Deitel)
+        this.tracker = new AR.Tracker("assets/coleccionLibros.wtc", {
+            onLoaded: this.worldLoaded
+        });
+
+	// indicamos el nombre del Target en el Tracker, basicamente al momento de que el Target sea rastreado por el Tracker el objeto htmlDrawable sera renderizado en la pantalla del dispositivo
+        var libro1 = new AR.Trackable2DObject(this.tracker, "narnia4", {
+            drawables: {
+                cam: htmlDrawable1
+            }
+        });
+
+	// indicamos el nombre del Target en el Tracker, basicamente al momento de que el Target sea rastreado por el Tracker el objeto htmlDrawable sera renderizado en la pantalla del dispositivo
+        var libro2 = new AR.Trackable2DObject(this.tracker, "2-harry-potter-y-la-camara-secreta1", {
+            drawables: {
+                cam: htmlDrawable2
+            }
+        });
+
+	// indicamos el nombre del Target en el Tracker, basicamente al momento de que el Target sea rastreado por el Tracker el objeto htmlDrawable sera renderizado en la pantalla del dispositivo
+        var libro3 = new AR.Trackable2DObject(this.tracker, "libro_1322105169", {
+            drawables: {
+                cam: htmlDrawable3
+            }
+        });
+
+	// indicamos el nombre del Target en el Tracker, basicamente al momento de que el Target sea rastreado por el Tracker el objeto htmlDrawable sera renderizado en la pantalla del dispositivo
+        var libro4 = new AR.Trackable2DObject(this.tracker, "41NCHzVsXTL._SY300_", {
+            drawables: {
+                cam: htmlDrawable4
+            }
+        });
+
+	// indicamos el nombre del Target en el Tracker, basicamente al momento de que el Target sea rastreado por el Tracker el objeto htmlDrawable sera renderizado en la pantalla del dispositivo
+        var libro5 = new AR.Trackable2DObject(this.tracker, "29718640", {
+            drawables: {
+                cam: htmlDrawable5
+            }
+        });
+
+	// indicamos el nombre del Target en el Tracker, basicamente al momento de que el Target sea rastreado por el Tracker el objeto htmlDrawable sera renderizado en la pantalla del dispositivo
+        var libro6 = new AR.Trackable2DObject(this.tracker, "el-caballo-y-el-muchacho-ebook-9788408097426[1]", {
+            drawables: {
+                cam: htmlDrawable6
+            }
+        });
+    }
+};
+
+// principal
+World.init();
